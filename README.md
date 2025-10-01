@@ -1,1 +1,1 @@
-# pytest-candidate-assignment
+# pytest-interviewer-assignment
