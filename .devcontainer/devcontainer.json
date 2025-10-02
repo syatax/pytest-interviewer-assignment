@@ -1,11 +1,8 @@
 {
     "name": "Pytetst/Selenium Assignment - Interviewer",
     "image": "mcr.microsoft.com/devcontainers/python:3.9",
-    
-    "onCreateCommand": "sudo apt-get update && sudo apt-get install -y wget gnupg && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && sudo sh -c 'echo \"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\" >> /etc/apt/sources.list.d/google.list' && sudo apt-get update && sudo apt-get install -y google-chrome-stable && python3 -m install -r requirements.txt",
-    
+    "onCreateCommand": "sudo apt-get update && sudo apt-get install -y wget gnupg ca-certificates && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux-signing-keyring.gpg && echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux-signing-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main\" | sudo tee /etc/apt/sources.list.d/google-chrome.list && sudo apt-get update && sudo apt-get install -y google-chrome-stable && pip install -r requirements.txt",
     "postCreateCommand": "echo 'Ready for Python Pytest testing with Selenium + Chrome!' && python3 --version && google-chrome --version",
-    
     "forwardPorts": [],
     "remoteUser": "vscode"
-  }
+}
