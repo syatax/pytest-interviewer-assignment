@@ -53,7 +53,7 @@ Implement **one comprehensive API test** for the JSONPlaceholder posts endpoint.
 
 ```bash
 pytest                    # Run all tests
-pytest --headless         # Run with visible browser
+pytest --headless         # Run with invisible browser
 ```
 
 ## Evaluation Focus
