@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import tempfile
 
 APP_HOST = "https://playwright.dev"
 DEFAULT_WAIT = 10
@@ -23,6 +24,8 @@ def chrome_options(request):
 
 @pytest.fixture(scope="function")
 def driver(chrome_options):
+    profile_dir = tempfile.mkdtemp()
+    chrome_options.add_argument(f"--user-data-dir={profile_dir}")
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(DEFAULT_WAIT)
     yield driver
