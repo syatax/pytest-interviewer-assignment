@@ -6,6 +6,13 @@ from selenium.webdriver.common.by import By
 def demo_page(driver):
     return DemoPage(driver)
 
+#
+# Test Suite - Debug and Fix Issues
+# 
+# This file contains several common testing errors.
+# Your task is to identify and fix all issues to make the tests pass.
+#
+
 @pytest.mark.nondestructive
 def test_homepage_verification(demo_page):
     demo_page.load()
